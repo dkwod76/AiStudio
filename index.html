@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitbuilder UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <h1 class="logo">Fitbuilder</h1>
+        <nav class="menu" id="menu">
+          <button class="menu-item active" data-page="freechat">💬 <span>Free Chat</span></button>
+          <button class="menu-item" data-page="background">🖼️ <span>Background Change</span></button>
+          <button class="menu-item" data-page="pose">🕺 <span>Pose Change</span></button>
+          <button class="menu-item" data-page="product">🛒 <span>Product Change</span></button>
+          <button class="menu-item" data-page="color">🎨 <span>Color Change</span></button>
+          <button class="menu-item" data-page="detail">🛠️ <span>Detail Extract</span></button>
+          <button class="menu-item" data-page="multi">🔀 <span>Multi Fitting Variation</span></button>
+          <button class="menu-item" data-page="ai">⭐ <span>AI Fitting Variation</span></button>
+          <button class="menu-item" data-page="motion">🎬 <span>Motion Builder</span></button>
+        </nav>
+      </div>
+      <div class="director-box">
+        <div class="avatar"></div>
+        <div>
+          <strong>AI Director</strong>
+          <p>Gemini Pro Mode</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="page active" id="page-freechat">
+        <div class="chat-layout">
+          <div class="chat-sidebar">
+            <button id="newChat" class="ghost-btn">+ 새 채팅</button>
+            <div id="chatRooms"></div>
+          </div>
+          <div class="chat-main">
+            <div class="chat-header"><span class="status-dot"></span> FreeChat</div>
+            <div class="messages" id="messages"></div>
+            <div class="chat-footer">
+              <div class="quality-switch">
+                <span>해상도:</span>
+                <button class="res-btn" data-res="1K">1K (크레딧)</button>
+                <button class="res-btn active" data-res="2K">2K (크레딧)</button>
+                <button class="res-btn" data-res="4K">4K (크레딧)</button>
+              </div>
+              <div class="input-wrap">
+                <label class="icon-btn">📷<input type="file" hidden></label>
+                <input id="chatInput" placeholder="패션 이미지 생성 요청을 입력하세요..." />
+                <button id="sendChat" class="send-btn">➤</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-pose"></section>
+      <section class="page" id="page-product"></section>
+      <section class="page" id="page-color"></section>
+      <section class="page" id="page-detail"></section>
+      <section class="page" id="page-multi"></section>
+      <section class="page" id="page-ai"></section>
+      <section class="page" id="page-motion"></section>
+      <section class="page" id="page-background"></section>
+    </main>
+  </div>
+
+  <template id="tool-template">
+    <div class="tool-wrap">
+      <header class="tool-header">
+        <h2></h2>
+        <p class="sub"></p>
+      </header>
+      <div class="upload-grid"></div>
+      <div class="panel prompt-panel">
+        <h3></h3>
+        <textarea rows="4" placeholder=""></textarea>
+      </div>
+      <div class="panel quality-panel">
+        <div class="res-group"><span>해상도:</span>
+          <button class="res-btn" data-res="1K">1K</button>
+          <button class="res-btn active" data-res="2K">2K</button>
+          <button class="res-btn" data-res="4K">4K</button>
+        </div>
+        <button class="gen-btn" disabled>이미지 생성</button>
+      </div>
+      <div class="panel result-panel">
+        <div class="result-head"><h3>결과</h3><div><span class="badge">0개 생성됨</span> <button class="clear-btn">탭 전체 삭제</button></div></div>
+        <div class="empty-result">생성된 이미지가 없습니다</div>
+        <div class="result-list hidden"></div>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
